@@ -1,25 +1,21 @@
-package com.arctouch.codechallenge.ui.home
+package com.arctouch.codechallenge.ui.listMovie
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.arctouch.codechallenge.data.Cache
+import com.arctouch.codechallenge.data.model.Movie
 import com.arctouch.codechallenge.data.repository.home.IHomeRepository
-import com.arctouch.codechallenge.model.Movie
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class HomeViewModel(private val homeRepository: IHomeRepository):ViewModel() {
-
-
+class ListMovieViewModel(private val homeRepository: IHomeRepository) : ViewModel() {
     private val listMoviesLiveData by lazy {
         MutableLiveData<List<Movie>>()
     }
 
-    fun getUpcomingMovies(): LiveData<List<Movie>>{
+    fun getUpcomingMovies(): LiveData<List<Movie>> {
         return listMoviesLiveData
     }
 
@@ -46,6 +42,5 @@ class HomeViewModel(private val homeRepository: IHomeRepository):ViewModel() {
                     Cache.cacheGenres(it.genres)
                 }
     }
-
 
 }

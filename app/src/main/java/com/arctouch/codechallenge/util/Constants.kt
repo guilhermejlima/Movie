@@ -5,4 +5,9 @@ object Constants {
     const val API_KEY = "1f54bd990f1cdfb230adb312546d765d"
     const val DEFAULT_LANGUAGE = "pt-BR"
     const val DEFAULT_REGION = "BR"
+
+    const val DETAIL_FRAGMENT_TAG = "detailfragment"
+    const val LIST_MOVIE_FRAGMENT_TAG = "listmoviefragment"
+
+    const val ID_MOVIE = "idmovie"
 }

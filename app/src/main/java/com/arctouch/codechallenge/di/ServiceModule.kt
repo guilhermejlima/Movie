@@ -1,6 +1,6 @@
 package com.arctouch.codechallenge.di
 
-import com.arctouch.codechallenge.api.TmdbApi
+import com.arctouch.codechallenge.data.repository.detail.DetailService
 import com.arctouch.codechallenge.data.repository.home.HomeService
 import com.arctouch.codechallenge.util.Constants.URL
 import okhttp3.Interceptor
@@ -16,6 +16,7 @@ val serviceModule = module {
     single { createOkHttpClient() }
     single { createRetrofit(get()) }
     single { createHomeService(get()) }
+    single { createDetailService(get()) }
 
 }
 
@@ -44,3 +45,5 @@ fun createRetrofit(okHttpClient: OkHttpClient): Retrofit =
         .build()
 
 fun createHomeService(retrofit: Retrofit) : HomeService = retrofit.create(HomeService::class.java)
+
+fun createDetailService(retrofit: Retrofit) : DetailService = retrofit.create(DetailService::class.java)
