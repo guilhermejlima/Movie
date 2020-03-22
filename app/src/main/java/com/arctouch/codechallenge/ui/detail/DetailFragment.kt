@@ -11,7 +11,8 @@ import androidx.lifecycle.Observer
 import com.arctouch.codechallenge.R
 import com.arctouch.codechallenge.data.model.Movie
 import com.arctouch.codechallenge.util.Constants.ID_MOVIE
-import com.arctouch.codechallenge.util.MovieImageUrlBuilder
+import com.arctouch.codechallenge.util.buildBackdropUrl
+import com.arctouch.codechallenge.util.buildPosterUrl
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.detail_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -19,8 +20,6 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class DetailFragment : Fragment() {
 
     private val detailViewModel : DetailViewModel by viewModel()
-
-    private val movieImageUrlBuilder = MovieImageUrlBuilder()
 
     private var idMovie: Int? = 0
 
@@ -59,7 +58,7 @@ class DetailFragment : Fragment() {
     }
 
     private fun createImageBackdrop(backdroPpath: String){
-        val image = movieImageUrlBuilder.buildBackdropUrl(backdroPpath)
+        val image = backdroPpath.buildBackdropUrl()
         Glide
                 .with(this)
                 .load(image)
@@ -69,7 +68,7 @@ class DetailFragment : Fragment() {
     }
 
     private fun createImagePoster(posterPath: String){
-        val posterImage = movieImageUrlBuilder.buildPosterUrl(posterPath)
+        val posterImage = posterPath.buildPosterUrl()
         Glide
                 .with(this)
                 .load(posterImage)
