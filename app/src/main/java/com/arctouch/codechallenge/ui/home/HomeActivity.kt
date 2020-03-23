@@ -38,7 +38,6 @@ class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, Lifecyc
 
     override fun goToDetailsFragment(id: Int){
         idMovie = id
-        fragmentManager.popBackStack()
         replaceFragment(DETAIL_FRAGMENT_TAG)
     }
 

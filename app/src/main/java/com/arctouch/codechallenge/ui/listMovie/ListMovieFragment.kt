@@ -28,7 +28,7 @@ class ListMovieFragment : Fragment(), ListMovieAdapter.OnItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initObservables()
+
     }
 
     override fun onAttach(context: Context) {
@@ -42,7 +42,9 @@ class ListMovieFragment : Fragment(), ListMovieAdapter.OnItemClickListener {
 
     override fun onResume() {
         super.onResume()
+        initObservables()
         listMovieViewModel.updateList()
+        listMovieViewModel.updateGenres()
     }
 
 
